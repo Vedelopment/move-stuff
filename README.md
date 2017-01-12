@@ -1,4 +1,12 @@
-# move-stuff
+# Move Stuff!
+
+## About:
+This is an easy app to help you find someone near you with a vehicle that can help you move stuff. Kind of like Uber meets Task Rabbit!
+
+## Uses:
+- HTML5
+- CSS
+- Angular
 
 ## WEEKEND VERSION 1:
 - download and try out uber/lyft
