@@ -1,12 +1,8 @@
-/************
- * DATABASE *
- ************/
-
-var db = require('../models/driver.js');
+var db = require('../models/index.js');
 
 // GET /api/drivers
 function index(req, res) {
-  db.find({}, function(err, allDrivers) {
+  db.Driver.find({}, function(err, allDrivers) {
     res.json(allDrivers);
   });
 }
@@ -20,7 +16,7 @@ function create(req, res) {
     req.body.genres = genres;
   }
 
-  db.create(req.body, function(err, driver) {
+  db.Driver.create(req.body, function(err, driver) {
     if (err) { console.log('error', err); }
     console.log(driver);
     res.json(driver);
@@ -28,7 +24,7 @@ function create(req, res) {
 }
 
 function show(req, res) {
-  db.findById(req.params.driverId, function(err, foundDriver) {
+  db.Driver.findById(req.params.driverId, function(err, foundDriver) {
     if(err) { console.log('driversController.show error', err); }
     console.log('driversController.show responding with', foundDriver);
     res.json(foundDriver);
@@ -36,7 +32,7 @@ function show(req, res) {
 }
 
 function destroy(req, res) {
-  db.findOneAndRemove({ _id: req.params.driverId }, function(err, foundDriver){
+  db.Driver.findOneAndRemove({ _id: req.params.driverId }, function(err, foundDriver){
     // note you could send just send 204, but we're sending 200 and the deleted entity
     res.json(foundDriver);
   });
@@ -44,7 +40,7 @@ function destroy(req, res) {
 
 function update(req, res) {
   console.log('updating with data', req.body);
-  db.findById(req.params.driverId, function(err, foundDriver) {
+  db.Driver.findById(req.params.driverId, function(err, foundDriver) {
     if(err) { console.log('driversController.update error', err); }
     foundDriver.artistName = req.body.artistName;
     foundDriver.name = req.body.name;

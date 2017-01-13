@@ -6,21 +6,20 @@ DriversShowController.$inject = ['$http', '$routeParams'];
 
 function DriversShowController ($http, $routeParams) {
   var vm = this;
-  vm.newSong = {};
 
   $http({
     method: 'GET',
-    url: '/api/albums/'+$routeParams.id
+    url: '/api/drivers/'+$routeParams.id
   }).then(function successCallback(json) {
-    vm.album = json.data;
+    vm.driver = json.data;
   }, function errorCallback(response) {
     console.log('There was an error getting the data', response);
   });
 
-  vm.editSong = function (driver) {
+  vm.editDriver = function (driver) {
     $http({
       method: 'PUT',
-      url: '/api/albums/'+ $routeParams.id + '/drivers/' + driver._id ,
+      url: '/api/drivers/'+ $routeParams.id + '/drivers/' + driver._id ,
       data: driver
     }).then(function successCallback(json) {
       // don't need to do anything!
@@ -29,26 +28,26 @@ function DriversShowController ($http, $routeParams) {
     });
   }
 
-  vm.deleteSong = function (driver) {
+  vm.deleteDriver = function (driver) {
     $http({
       method: 'DELETE',
-      url: '/api/albums/'+ $routeParams.id + '/drivers/' + driver._id
+      url: '/api/drivers/'+ $routeParams.id + '/drivers/' + driver._id
     }).then(function successCallback(json) {
-      var index = vm.album.drivers.indexOf(driver);
-      vm.album.drivers.splice(index, 1);
+      var index = vm.driver.drivers.indexOf(driver);
+      vm.driver.drivers.splice(index, 1);
     }, function errorCallback(response) {
       console.log('There was an error deleting the data', response);
     });
   }
 
-  vm.createSong = function () {
+  vm.createDriver = function () {
     $http({
       method: 'POST',
-      url: '/api/albums/'+ $routeParams.id + '/drivers',
-      data: vm.newSong
+      url: '/api/drivers/'+ $routeParams.id + '/drivers',
+      data: vm.newDriver
     }).then(function successCallback(json) {
-      vm.album.drivers.push(json.data);
-      vm.newSong = {};
+      vm.driver.drivers.push(json.data);
+      vm.newDriver = {};
     }, function errorCallback(response) {
       console.log('There was an error creating the data', response);
     });
