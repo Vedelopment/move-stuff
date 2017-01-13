@@ -1,4 +1,4 @@
-# Move Stuff!
+# HAUL
 
 ## About:
 This is an easy app to help you find someone near you with a vehicle that can help you move stuff. Kind of like Uber meets Task Rabbit!
