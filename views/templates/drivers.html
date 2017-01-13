@@ -1,0 +1,33 @@
+<div>
+  <!-- REPLACE WITH HANDLEBARS HEADER TEMPLATE -->
+  <div class="header-container">
+    <h1>HAUL</h1>
+    <h4>Find a driver!</h4>
+  </div>
+
+  <!-- <div ng-view></div> -->
+  <div>
+
+    <div class="card" ng-model="DriversIndexController">
+      <div class="card" ng-repeat="Driver in driversIndexCtrl.Driver">
+        <h3>{{driversIndexCtrl.Driver.name}}</h3>
+
+        <jk-rating-stars rating="driversIndexCtrl.Driver.rating" read-only="driversIndexCtrl.Driver.readOnly">
+        </jk-rating-stars>
+        <img src={{driversIndexCtrl.Driver.img}}>
+
+        <ul>
+          <!-- <li>{{driversIndexCtrl.Driver.rating}}</li> -->
+          <li>{{driversIndexCtrl.Driver.location}}</li>
+          <!-- <h4>{{Driver.name}}</h4> -->
+          <li>{{driversIndexCtrl.Driver.rate}}</li>
+        </ul>
+
+        <ul>
+          <li><button class="btn btn-sm btn-success" ng-repeat="vehicles in driversIndexCtrl.Driver.vehicles">{{vehicles}}</button></li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</div>

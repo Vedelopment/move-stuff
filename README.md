@@ -31,6 +31,10 @@ This is an easy app to help you find someone near you with a vehicle that can he
 FUTURE:
 login
 
+## Things that tripped me up:
+- The order in which you link to scripts will make or break your angular (app.js has to come first before controllers try to use the module)
+- Similarly, linking to custom css before bootstrap will cause bootstrap to overwrite your css
+
 # <img src="https://cloud.githubusercontent.com/assets/7833470/10423298/ea833a68-7079-11e5-84f8-0a925ab96893.png" width="60"> Angular Build (UXDi Collaboration)
 
 Design and build an application from scratch using Angular.

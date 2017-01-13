@@ -1,28 +1,36 @@
 <!DOCTYPE html>
-<html ng-app="">
-  <head>
+<html lang="en" ng-app="haul">
+
+<head>
+
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>HAUL</title>
 
     <!-- STYLESHEETS -->
-    <link rel="stylesheet" href="../public/styles/main.css">
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../public/styles/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../styles/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../styles/bootstrap.min.css">
+    <link href="../scripts/vendor-scripts/angular-jk-rating-stars/dist/jk-rating-stars.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css">
 
     <!-- VENDOR SCRIPTS -->
-    <script src="../node_modules/angular/angular.min.js"></script>
-    <script src="../node_modules/angular-route/angular-route.min.js"></script>
+    <script src="../scripts/vendor-scripts/angular/angular.min.js"></script>
+    <script src="../scripts/vendor-scripts/angular-route/angular-route.min.js"></script>
+    <script src="../scripts/vendor-scripts/angular-jk-rating-stars/dist/jk-rating-stars.js"></script>
 
     <!-- APPLICATION SCRIPTS -->
-    <script src="../public/scripts/app.js"></script>
-    <!-- <script src="../scripts/controllers/AlbumsIndexController.js"></script>
-    <script src="../scripts/controllers/AlbumsShowController.js"></script> -->
+    <script src="../scripts/app.js"></script>
+    <script src="../scripts/controllers/DriversIndexController.js"></script>
+    <script src="../scripts/controllers/DriversShowController.js"></script>
 
-  </head>
-  <body>
+</head>
 
-    <!-- REPLACE WITH ANGULAR HEADER TEMPLATE -->
-    <h1>HAUL</h1>
+<body>
 
-  </body>
+  <div ng-view></div>
+
+</body>
+
 </html>

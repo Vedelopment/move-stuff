@@ -3,9 +3,14 @@ var Schema = mongoose.Schema;
 
 var DriverSchema = new Schema({
   name: String,
+  img: String,
+  readOnly: String,
   rating: String,
   location: String,
-  vehicles: String,
+  vehicles: [
+    String,
+    String
+  ],
   availability: String,
   rate: String,
 });

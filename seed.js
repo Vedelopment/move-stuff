@@ -1,9 +1,12 @@
-var db = require("models");
+var db = require("./models");
 
 var driverList =[];
+
 driverList.push({
               name: 'Jana',
-              rating: '5',
+              img: '/images/Jana.png',
+              readOnly: '4',
+              rating: '4',
               location: 'San Francisco',
               vehicles: ['car', 'truck'],
               availability: 'yes',
@@ -42,6 +45,7 @@ driverList.push({
               rate: '$20/hr',
             });
 
+            console.log(driverList);
 db.Driver.remove({}, function(err, drivers){
 
   db.Driver.create(driverList, function(err, drivers){

@@ -1,0 +1,107 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <h1>something</h1>
+
+      <form class="form-horizontal" ng-submit="driversIndexCtrl.createDriver()">
+        <fieldset>
+
+          <!-- Form Name -->
+          <legend>Add New Driver</legend>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label">Driver Name</label>
+            <div class="col-md-4">
+            <input id="name" ng-model="driversIndexCtrl.newDriver.name" type="text" class="form-control input-md" required="">
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label">Artist Name</label>
+            <div class="col-md-4">
+            <input ng-model="driversIndexCtrl.newDriver.artistName" type="text" class="form-control input-md">
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label">Release Date</label>
+            <div class="col-md-4">
+            <input ng-model="driversIndexCtrl.newDriver.releaseDate" type="text" class="form-control input-md">
+            </div>
+          </div>
+
+          <!-- Textarea -->
+          <div class="form-group">
+            <label class="col-md-4 control-label">Genres (separated by commas)</label>
+            <div class="col-md-4">
+              <textarea class="form-control" ng-model="driversIndexCtrl.newDriver.genres"></textarea>
+            </div>
+          </div>
+
+
+          <!-- Button -->
+          <div class="form-group">
+            <label class="col-md-4 control-label">Save Driver</label>
+            <div class="col-md-4">
+              <button class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+
+  <input type="text" class="form-control" ng-model="searchText" placeholder="Search Drivers">
+  <div ng-repeat="driver in driversIndexCtrl.drivers | orderBy: 'name' | filter: searchText" class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="panel panel-default">
+        <div class="panel-body">
+
+          <div class='row'>
+            <div class="col-md-3 col-xs-12 thumbnail">
+              <img src="images/800x800.png" alt="driver image">
+            </div>
+
+            <div class="col-md-9 col-xs-12">
+              <ul class="list-group form-inline">
+                <li class="list-group-item">
+                  <h4 class='inline-header'>Driver Name:</h4>
+                  <span ng-hide="editing"><a ng-href="drivers/{{driver._id}}">{{driver.name}}</a></span>
+                  <input ng-show="editing" ng-model="driver.name" type="text" class="form-control input-md">
+                </li>
+
+                <li class="list-group-item">
+                  <h4 class='inline-header'>Artist Name:</h4>
+                  <span ng-hide="editing">{{driver.artistName}}</span>
+                  <input ng-show="editing" ng-model="driver.artistName" type="text" class="form-control input-md">
+                </li>
+
+                <li class="list-group-item">
+                  <h4 class='inline-header'>Released date:</h4>
+                  <span ng-hide="editing">{{driver.releaseDate}}</span>
+                  <input ng-show="editing" ng-model="driver.releaseDate" type="text" class="form-control input-md">
+                </li>
+
+                <li class="list-group-item">
+                  <h4 class="inline-header">Songs:</h4>
+                  <span ng-repeat="song in driver.songs">&ndash; ({{song.trackNumber}}) {{song.name}} &ndash;</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class='panel-footer'>
+            <div class='panel-footer'>
+              <button class='btn btn-danger' ng-click="driversIndexCtrl.deleteDriver(driver)">Delete Driver</button>
+              <button class='btn btn-info' ng-hide="editing" ng-click="editing = true">Edit Driver</button>
+              <button class='btn btn-success' ng-show="editing" ng-click="driversIndexCtrl.editDriver(driver); editing = false">Save Changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
