@@ -6,17 +6,18 @@ DriversIndexController.$inject = ['$http'];
 
 function DriversIndexController ($http) {
   var vm = this;
-  vm.newDriver = {};
-  vm.newDriver = {
-    name: 'Viva Hate',
-    artistName: 'Morrissey'
-  };
+  vm.drivers = {};
+  // vm.newDriver = {
+    // name: 'Viva Hate',
+    // artistName: 'Morrissey'
+  // };
 
   $http({
     method: 'GET',
     url: '/api/drivers'
   }).then(function successCallback(response) {
     vm.drivers = response.data;
+    console.log(vm.drivers);
   }, function errorCallback(response) {
     console.log('There was an error getting the data', response);
   });

@@ -10,23 +10,20 @@
 
   <div>
 
-    <div class="card" ng-repeat="newDriver in driversIndexCtrl.newDriver">
-      <p>{{driversIndexCtrl.newDriver}}</p>
-      <h3>{{driversIndexCtrl.newDriver.name}}</h3>
+    <div class="card" ng-repeat="driver in driversIndexCtrl.drivers">
+      <h3>{{driver.name}}</h3>
 
-      <jk-rating-stars rating="driversIndexCtrl.Driver.rating" read-only="driversIndexCtrl.Driver.readOnly">
+      <jk-rating-stars rating="driver.rating" read-only="driver.readOnly">
       </jk-rating-stars>
-      <img src={{driversIndexCtrl.Driver.img}}>
+      <img src={{driver.img}}>
 
       <ul>
-        <!-- <li>{{driversIndexCtrl.Driver.rating}}</li> -->
-        <li>{{driversIndexCtrl.Driver.location}}</li>
-        <!-- <h4>{{Driver.name}}</h4> -->
-        <li>{{driversIndexCtrl.Driver.rate}}</li>
+        <li>{{driver.location}}</li>
+        <li>{{driver.rate}}</li>
       </ul>
 
       <ul>
-        <li><button class="btn btn-sm btn-success" ng-repeat="vehicles in driversIndexCtrl.Driver.vehicles">{{vehicles}}</button></li>
+        <li><button class="btn btn-sm btn-success" ng-repeat="vehicles in driver.vehicles">{{vehicles}}</button></li>
       </ul>
 
     </div>
