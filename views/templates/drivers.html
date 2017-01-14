@@ -1,63 +1,67 @@
 <div>
-  <!-- REPLACE WITH HANDLEBARS HEADER TEMPLATE -->
+  <!-- FUTURE: REPLACE WITH HANDLEBARS HEADER TEMPLATE? -->
   <div class="header-container">
 
     <h1>HAUL</h1>
-    <h4>Find a driver!</h4>
+    <h4>On Demand Community Movers</h4>
 
   </div>
 
+  <!-- MAP -->
+  <div id="map">MAP</div>
 
+  <!-- ADD NEW DRIVER FORM -->
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
 
       <fieldset>
         <form class="form-horizontal" ng-submit="driversIndexCtrl.createDriver()">
 
-          <!-- Form Name -->
+          <!-- FORM TITLE -->
           <legend>Add New Driver</legend>
 
-          <!-- Text input-->
+          <!-- INPUT DRIVER NAME -->
           <div class="form-group">
             <label class="col-md-4 control-label">Driver Name</label>
             <div class="col-md-4">
-            <input id="name" ng-model="driversIndexCtrl.newDriver.name" type="text" class="form-control input-md" placeholder="Driver Name" required="">
+            <input id="name" ng-model="driversIndexCtrl.newDriver.name" type="text" class="form-control input-md" placeholder="Driver Name">
             </div>
           </div>
 
+          <!-- INPUT DRIVER IMG -->
           <div class="form-group">
             <label class="col-md-4 control-label">Driver Image (enter an online url link)</label>
             <div class="col-md-4">
-            <input id="name" ng-model="driversIndexCtrl.newDriver.img" type="text" class="form-control input-md" placeholder="Driver Image (enter a url link)" required="">
+            <input ng-model="driversIndexCtrl.newDriver.img" type="text" class="form-control input-md" value='n' placeholder="Driver Image (enter a url link)">
             </div>
           </div>
 
-          <!-- Text input-->
+          <!-- INPUT LOCATION -->
           <div class="form-group">
             <label class="col-md-4 control-label">Vehicle Location</label>
             <div class="col-md-4">
-            <input ng-model="driversIndexCtrl.newDriver.location" type="text" class="form-control input-md" placeholder="Location" required="">
+            <input ng-model="driversIndexCtrl.newDriver.location" type="text" class="form-control input-md" placeholder="Location">
             </div>
           </div>
 
-          <!-- Text input-->
+          <!-- INPUT RATE -->
           <div class="form-group">
             <label class="col-md-4 control-label">Vehicle Rate</label>
             <div class="col-md-4">
-            <input ng-model="driversIndexCtrl.newDriver.rate" type="text" class="form-control input-md" placeholder="Rate (dollars/hr)" required="">
+            <input ng-model="driversIndexCtrl.newDriver.rate" type="text" class="form-control input-md" placeholder="Rate (dollars/hr)">
             </div>
           </div>
 
-          <!-- Textarea -->
+          <!-- INPUT VEHICLES -->
           <div class="form-group">
             <label class="col-md-4 control-label">Vehicles (separated by commas)</label>
             <div class="col-md-4">
-              <textarea ng-model="driversIndexCtrl.newDriver.vehicles" class="form-control" placeholder="Vehicles (separated by commas)" required=""></textarea>
+              <textarea ng-model="driversIndexCtrl.newDriver.vehicles" class="form-control" placeholder="Vehicles (separated by commas)"></textarea>
             </div>
           </div>
 
 
-          <!-- Button -->
+          <!-- SUBMIT NEW DRIVER -->
           <div class="form-group">
             <label class="col-md-4 control-label">Save Driver</label>
             <div class="col-md-4">
@@ -68,9 +72,12 @@
       </fieldset>
     </div>
   </div>
+  <!-- END OF NEW DRIVER FORM -->
 
+  <!-- CONTAINER FOR ALL DRIVERS -->
   <div>
 
+    <!-- CARD FOR EACH DRIVER IN DATABASE -->
     <div class="card" ng-repeat="driver in driversIndexCtrl.drivers">
       <!-- <h3>{{driver}}</h3> -->
       <h3>{{driver.name}}</h3>
@@ -88,7 +95,20 @@
         <li><button class="btn btn-sm btn-success" ng-repeat="vehicles in driver.vehicles">{{vehicles}}</button></li>
       </ul>
 
+      <!-- FOOTER WITH EDIT AND DELETE OPTION FOR EACH DRIVER -->
+      <div class='panel-footer'>
+        <div class='panel-footer'>
+          <button class='btn btn-danger' ng-click="driversIndexCtrl.deleteDriver(driver)">Delete Driver</button>
+          <button class='btn btn-info' ng-hide="editing" ng-click="editing = true">Edit Driver</button>
+          <button class='btn btn-success' ng-show="editing" ng-click="driversIndexCtrl.editDriver(driver); editing = false">Save Changes</button>
+        </div>
+      </div>
+      <!-- END OF FOOTER -->
+
     </div>
+    <!-- END OF DRIVER CARD   -->
 
   </div>
+  <!-- END OF CONTAINER FOR ALL DRIVERS -->
+
 </div>

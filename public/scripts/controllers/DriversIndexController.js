@@ -23,11 +23,18 @@ function DriversIndexController ($http) {
   });
 
   vm.createDriver = function () {
+    // console.log(vm.newDriver);
+    console.log(vm.newDriver.name);
+    // console.log(vm.newDriver.name);
+    // if (vm.newDriver.img === 'n') {
+    //   vm.newDriver.img = 'defaultAvatar.png';
+    // }
     $http({
       method: 'POST',
       url: '/api/drivers',
       data: vm.newDriver,
     }).then(function successCallback(response) {
+        // console.lo g(response.data);
       vm.drivers.push(response.data);
     }, function errorCallback(response) {
       console.log('There was an error posting the data', response);
