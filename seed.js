@@ -14,35 +14,43 @@ driverList.push({
             });
 driverList.push({
               name: 'Jay',
+              img: '/images/Jay.png',
               rating: '3.5',
+              readOnly: '3.5',
               location: 'San Francisco',
               vehicles: ['car', 'truck'],
               availability: 'yes',
-              rate: '$20/hr',
+              rate: '$23/hr',
             });
 driverList.push({
               name: 'John',
+              img: '/images/John.png',
               rating: '4',
+              readOnly: '4',
               location: 'San Francisco',
               vehicles: ['car', 'truck'],
               availability: 'yes',
-              rate: '$20/hr',
+              rate: '$25/hr',
             });
 driverList.push({
               name: 'Marissa',
+              img: '/images/Marissa.png',
               rating: '3.5',
+              readOnly: '3.5',
               location: 'San Francisco',
-              vehicles: ['car', 'truck'],
+              vehicles: ['car', 'truck with trailor'],
               availability: 'yes',
-              rate: '$20/hr',
+              rate: '$30/hr',
             });
 driverList.push({
               name: 'Shaan',
+              img: '/images/Shaan.png',
               rating: '5',
+              readOnly: '5',
               location: 'San Francisco',
-              vehicles: ['car', 'truck'],
+              vehicles: ['car', 'large truck'],
               availability: 'yes',
-              rate: '$20/hr',
+              rate: '$28/hr',
             });
 
             console.log(driverList);

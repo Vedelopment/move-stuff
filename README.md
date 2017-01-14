@@ -26,6 +26,17 @@ This is an easy app to help you find someone near you with a vehicle that can he
     - times of day
   - rate/hr
 
+## COMPLETE:
+- server up and running
+- load seed data of drivers on home page
+
+## TO-DO:
+- click on a user name to bring you to their profile page
+- Form to create new driver (fake login for new driver user?)
+  - Ideally, this would be a form to create a new driver username and password?
+- Button to edit a driver's info (fake login for driver only?)
+- Button to delete a driver (fake login for driver only?)
+
 
 
 FUTURE:

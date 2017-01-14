@@ -8,9 +8,71 @@
   </div>
 
 
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+
+      <fieldset>
+        <form class="form-horizontal" ng-submit="driversIndexCtrl.createDriver()">
+
+          <!-- Form Name -->
+          <legend>Add New Driver</legend>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label">Driver Name</label>
+            <div class="col-md-4">
+            <input id="name" ng-model="driversIndexCtrl.newDriver.name" type="text" class="form-control input-md" placeholder="Driver Name" required="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-4 control-label">Driver Image (enter an online url link)</label>
+            <div class="col-md-4">
+            <input id="name" ng-model="driversIndexCtrl.newDriver.img" type="text" class="form-control input-md" placeholder="Driver Image (enter a url link)" required="">
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label">Vehicle Location</label>
+            <div class="col-md-4">
+            <input ng-model="driversIndexCtrl.newDriver.location" type="text" class="form-control input-md" placeholder="Location" required="">
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label">Vehicle Rate</label>
+            <div class="col-md-4">
+            <input ng-model="driversIndexCtrl.newDriver.rate" type="text" class="form-control input-md" placeholder="Rate (dollars/hr)" required="">
+            </div>
+          </div>
+
+          <!-- Textarea -->
+          <div class="form-group">
+            <label class="col-md-4 control-label">Vehicles (separated by commas)</label>
+            <div class="col-md-4">
+              <textarea ng-model="driversIndexCtrl.newDriver.vehicles" class="form-control" placeholder="Vehicles (separated by commas)" required=""></textarea>
+            </div>
+          </div>
+
+
+          <!-- Button -->
+          <div class="form-group">
+            <label class="col-md-4 control-label">Save Driver</label>
+            <div class="col-md-4">
+              <button class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </form>
+      </fieldset>
+    </div>
+  </div>
+
   <div>
 
     <div class="card" ng-repeat="driver in driversIndexCtrl.drivers">
+      <!-- <h3>{{driver}}</h3> -->
       <h3>{{driver.name}}</h3>
 
       <jk-rating-stars rating="driver.rating" read-only="driver.readOnly">
