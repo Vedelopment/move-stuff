@@ -12,6 +12,7 @@ function DriversShowController ($http, $routeParams) {
     url: '/api/drivers/'+$routeParams.id
   }).then(function successCallback(json) {
     vm.driver = json.data;
+    mapDirective();
   }, function errorCallback(response) {
     console.log('There was an error getting the data', response);
   });
