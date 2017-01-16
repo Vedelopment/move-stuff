@@ -16,9 +16,13 @@ function DriversIndexController ($http) {
     url: '/api/drivers'
   }).then(function successCallback(response) {
 
+    console.log(response.data[0]._id);
+
     vm.drivers = response.data;
     var driverOneLat = response.data[0].lat;
     var driverOneLon = response.data[0].lon;
+    var driverOneId = response.data[0]._id;
+
     var driverTwoLat = response.data[1].lat;
     var driverTwoLon = response.data[1].lon;
     var driverThreeLat = response.data[2].lat;
@@ -29,7 +33,7 @@ function DriversIndexController ($http) {
     var driverFiveLon = response.data[4].lon;
     // var driverLon = response.data[0].loc.lon;
     initMap(
-      driverOneLat, driverOneLon,
+      driverOneLat, driverOneLon, driverOneId,
       driverTwoLat, driverTwoLon,
       driverThreeLat, driverThreeLon,
       driverFourLat, driverFourLon,

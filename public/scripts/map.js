@@ -8,7 +8,7 @@ var map;
 var sanFran = {lat: 37.774, lng: -122.419};
 
 function initMap(
-  driverOneLat, driverOneLon,
+  driverOneLat, driverOneLon, driverOneId,
   driverTwoLat, driverTwoLon,
   driverThreeLat, driverThreeLon,
   driverFourLat, driverFourLon,
@@ -18,6 +18,7 @@ function initMap(
   map = new google.maps.Map(document.getElementById('driversMap'), {
     center: sanFran,
     zoom: 11,
+    // ScrollGesturesEnabled: false,
     styles:
     [
       {
@@ -181,6 +182,8 @@ function initMap(
     ]
   });
 
+  // map.UiSettings.setScrollGesturesEnabled(false);
+
   var driverOneLoc = {lat: driverOneLat, lng: driverOneLon};
   var driverTwoLoc = {lat: driverTwoLat, lng: driverTwoLon};
   var driverThreeLoc = {lat: driverThreeLat, lng: driverThreeLon};
@@ -233,35 +236,38 @@ function initMap(
     // }
   // }
 
-  var marker = new google.maps.Marker({
+  var markerOne = new google.maps.Marker({
     position: driverOneLoc,
     map: map,
     animation: google.maps.Animation.DROP,
+    tag: driverOneId
     // icon: truckIcon
   });
 
-  var marker = new google.maps.Marker({
+  console.log(markerOne);
+
+  var markerTwo = new google.maps.Marker({
     position: driverTwoLoc,
     map: map,
     animation: google.maps.Animation.DROP,
     // icon: truckIcon
   });
 
-  var marker = new google.maps.Marker({
+  var markerThree = new google.maps.Marker({
     position: driverThreeLoc,
     map: map,
     animation: google.maps.Animation.DROP,
     // icon: truckIcon
   });
 
-  var marker = new google.maps.Marker({
+  var markerFour = new google.maps.Marker({
     position: driverFourLoc,
     map: map,
     animation: google.maps.Animation.DROP,
     // icon: truckIcon
   });
 
-  var marker = new google.maps.Marker({
+  var markerFive = new google.maps.Marker({
     position: driverFiveLoc,
     map: map,
     animation: google.maps.Animation.DROP,
@@ -289,7 +295,7 @@ function initMap(
   //    '</div>'+
   //    '</div>';
   var openInfo = function() {
-    console.log('marker clicked');
+    console.log(markerOne.tag);
   };
 
   // marker.addListener('click', openInfo());
@@ -299,7 +305,7 @@ function initMap(
   // });
 
 
-  marker.addListener('click', openInfo);
+  markerOne.addListener('click', openInfo);
 
   function toggleBounce() {
     if (marker.getAnimation() !== null) {
@@ -316,7 +322,7 @@ function initMap(
         userLoc = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         var userLoc = {lat: position.coords.latitude, lng: position.coords.longitude};
         map.setCenter(userLoc);
-        map.setZoom(14);
+        map.setZoom(13);
 
         var marker = new google.maps.Marker({
           position: userLoc,

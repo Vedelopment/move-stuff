@@ -8,7 +8,7 @@
       <!-- CARD FOR EACH DRIVER IN DATABASE -->
       <div class="card" ng-repeat="driver in driversIndexCtrl.drivers">
         <!-- <h3>{{driver}}</h3> -->
-        <h3>{{driver.name}}</h3>
+        <h4>{{driver.name}}</h4>
 
         <jk-rating-stars rating="driver.rating" read-only="driver.readOnly">
         </jk-rating-stars>
@@ -24,12 +24,10 @@
         </ul>
 
         <!-- FOOTER WITH EDIT AND DELETE OPTION FOR EACH DRIVER -->
-        <div class='panel-footer'>
-          <div class='panel-footer'>
-            <button class='btn btn-danger' ng-click="driversIndexCtrl.deleteDriver(driver)">Delete Driver</button>
-            <button class='btn btn-info' ng-hide="editing" ng-click="editing = true">Edit Driver</button>
-            <button class='btn btn-success' ng-show="editing" ng-click="driversIndexCtrl.editDriver(driver); editing = false">Save Changes</button>
-          </div>
+        <div>
+            <button class='btn btn-sm btn-info' ng-hide="editing" ng-click="editing = true">Edit Driver</button>
+            <button class='btn btn-sm btn-danger' ng-click="driversIndexCtrl.deleteDriver(driver)">Delete Driver</button>
+            <!-- <button class='btn btn-success' ng-show="editing" ng-click="driversIndexCtrl.editDriver(driver); editing = false">Save Changes</button> -->
         </div>
         <!-- END OF FOOTER -->
 
