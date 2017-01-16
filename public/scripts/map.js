@@ -21,8 +21,6 @@ function initMap(
   var driverFourLoc = {lat: driverFourLat, lng: driverFourLon};
   var driverFiveLoc = {lat: driverFiveLat, lng: driverFiveLon};
 
-  console.log('map.js');
-
   map = new google.maps.Map(document.getElementById('driversMap'), {
     center: {lat: 37.774, lng: -122.419},
     zoom: 11,
@@ -279,49 +277,49 @@ function initMap(
     ]
   });
 
-  var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+  var iconBase = '../icons/web/';
+  var truckIcon = iconBase + 'Pickup Green Marker.png';
 
-  var icons = {
-    parking: {
-      icon: iconBase + 'parking_lot_maps.png'
-    },
-    library: {
-      icon: iconBase + 'library_maps.png'
-    },
-    info: {
-      icon: iconBase + 'info-i_maps.png'
-    }
-  };
+    // library: {
+    //   icon: iconBase + 'library_maps.png'
+    // },
+    // info: {
+    //   icon: iconBase + 'info-i_maps.png'
+    // }
+  // };
 
-  function addMarker(feature) {
-    var marker = new google.maps.Marker({
-      position: feature.position,
-      icon: icons[feature.type].icon,
-      map: map
-    });
-  }
+  // console.log(icons);
+  //
+  // function addMarker(feature) {
+  //   var marker = new google.maps.Marker({
+  //     position: feature.position,
+  //     icon: icons[feature.type].icon,
+  //     map: map
+  //   });
+  // }
 
 
-  var features = [
-      {
-        position: new google.maps.LatLng(),
-        type: 'info'
-      },
-      // {
-      //   position: new google.maps.LatLng(37.775, -122.418),
-      //   type: 'info'
-      // }, {
-      //   position: new google.maps.LatLng(37.776, -122.417),
-      //   type: 'info'
-      // }, {
-      //   position: new google.maps.LatLng(37.777, -122.416),
-      //   type: 'info'
-      // }
-    ];
-
-    for (var i = 0, feature; feature = features[i]; i++) {
-      addMarker(feature);
-    }
+  // var features = [
+  //   console.log(icon
+  //     {
+  //       position: new google.maps.LatLng(),
+  //       type: 'info'
+  //     },
+  //     // {
+  //     //   position: new google.maps.LatLng(37.775, -122.418),
+  //     //   type: 'info'
+  //     // }, {
+  //     //   position: new google.maps.LatLng(37.776, -122.417),
+  //     //   type: 'info'
+  //     // }, {
+  //     //   position: new google.maps.LatLng(37.777, -122.416),
+  //     //   type: 'info'
+  //     // }
+  //   ];
+  //
+    // for (var i = 0, feature; feature = features[i]; i++) {
+    //   addMarker(marker);
+    // }
   // }
 
   if (navigator.geolocation) {
@@ -329,37 +327,51 @@ function initMap(
         userLoc = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         var userLoc = {lat: position.coords.latitude, lng: position.coords.longitude};
         map.setCenter(userLoc);
-        // console.log(typeof userLoc);
 
         var marker = new google.maps.Marker({
           position: sanFran,
-          map: map
+          map: map,
+          animation: google.maps.Animation.DROP,
+          icon: truckIcon
         });
 
         var marker = new google.maps.Marker({
           position: driverOneLoc,
-          map: map
+          map: map,
+          animation: google.maps.Animation.DROP,
+          icon: truckIcon
         });
 
         var marker = new google.maps.Marker({
           position: driverTwoLoc,
-          map: map
+          map: map,
+          animation: google.maps.Animation.DROP,
+          icon: truckIcon
         });
 
         var marker = new google.maps.Marker({
           position: driverThreeLoc,
-          map: map
+          map: map,
+          animation: google.maps.Animation.DROP,
+          icon: truckIcon
         });
 
         var marker = new google.maps.Marker({
           position: driverFourLoc,
-          map: map
+          map: map,
+          animation: google.maps.Animation.DROP,
+          icon: truckIcon
         });
 
         var marker = new google.maps.Marker({
           position: driverFiveLoc,
-          map: map
+          map: map,
+          animation: google.maps.Animation.DROP,
+          icon: truckIcon
         });
+
+        // marker.addListener('click', toggleBounce);
+
     });
   }
 }

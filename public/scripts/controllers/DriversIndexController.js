@@ -19,8 +19,6 @@ function DriversIndexController ($http) {
 
 
     vm.drivers = response.data;
-    console.log(response.data[0].lat);
-    // console.log(response.data[0].loc.lon);
     var driverOneLat = response.data[0].lat;
     var driverOneLon = response.data[0].lon;
     var driverTwoLat = response.data[1].lat;
