@@ -13,7 +13,8 @@ var DriverSchema = new Schema({
   ],
   availability: String,
   rate: String,
-  loc: String
+  lat: Number,
+  lon: Number
 });
 
 var Driver = mongoose.model('Driver', DriverSchema);

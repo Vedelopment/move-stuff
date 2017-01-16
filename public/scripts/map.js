@@ -7,11 +7,23 @@ function mapLink() {
 var map;
 var sanFran = {lat: 37.774, lng: -122.419};
 
-function initMap(driverLocs) {
-  console.log('map.js', driverLocs);
+function initMap(
+  driverOneLat, driverOneLon,
+  driverTwoLat, driverTwoLon,
+  driverThreeLat, driverThreeLon,
+  driverFourLat, driverFourLon,
+  driverFiveLat, driverFiveLon
+) {
+
+  var driverOneLoc = {lat: driverOneLat, lng: driverOneLon};
+  var driverTwoLoc = {lat: driverTwoLat, lng: driverTwoLon};
+  var driverThreeLoc = {lat: driverThreeLat, lng: driverThreeLon};
+  var driverFourLoc = {lat: driverFourLat, lng: driverFourLon};
+  var driverFiveLoc = {lat: driverFiveLat, lng: driverFiveLon};
+
+  console.log('map.js');
 
   map = new google.maps.Map(document.getElementById('driversMap'), {
-    // center: {lat: 37.774, lng: -135.419},
     center: {lat: 37.774, lng: -122.419},
     zoom: 11,
     styles:
@@ -292,18 +304,19 @@ function initMap(driverLocs) {
 
   var features = [
       {
-        position: new google.maps.LatLng(37.774, -122.419),
+        position: new google.maps.LatLng(),
         type: 'info'
-      }, {
-        position: new google.maps.LatLng(37.775, -122.418),
-        type: 'info'
-      }, {
-        position: new google.maps.LatLng(37.776, -122.417),
-        type: 'info'
-      }, {
-        position: new google.maps.LatLng(37.777, -122.416),
-        type: 'info'
-      }
+      },
+      // {
+      //   position: new google.maps.LatLng(37.775, -122.418),
+      //   type: 'info'
+      // }, {
+      //   position: new google.maps.LatLng(37.776, -122.417),
+      //   type: 'info'
+      // }, {
+      //   position: new google.maps.LatLng(37.777, -122.416),
+      //   type: 'info'
+      // }
     ];
 
     for (var i = 0, feature; feature = features[i]; i++) {
@@ -324,10 +337,29 @@ function initMap(driverLocs) {
         });
 
         var marker = new google.maps.Marker({
-          position: userLoc,
+          position: driverOneLoc,
           map: map
         });
-        // console.log(marker);
+
+        var marker = new google.maps.Marker({
+          position: driverTwoLoc,
+          map: map
+        });
+
+        var marker = new google.maps.Marker({
+          position: driverThreeLoc,
+          map: map
+        });
+
+        var marker = new google.maps.Marker({
+          position: driverFourLoc,
+          map: map
+        });
+
+        var marker = new google.maps.Marker({
+          position: driverFiveLoc,
+          map: map
+        });
     });
   }
 }

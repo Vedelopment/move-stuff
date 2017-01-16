@@ -19,9 +19,26 @@ function DriversIndexController ($http) {
 
 
     vm.drivers = response.data;
-    console.log(response.data[0].name);
-    var driverLocs = response.data[0].loc;
-    initMap(driverLocs);
+    console.log(response.data[0].lat);
+    // console.log(response.data[0].loc.lon);
+    var driverOneLat = response.data[0].lat;
+    var driverOneLon = response.data[0].lon;
+    var driverTwoLat = response.data[1].lat;
+    var driverTwoLon = response.data[1].lon;
+    var driverThreeLat = response.data[2].lat;
+    var driverThreeLon = response.data[2].lon;
+    var driverFourLat = response.data[3].lat;
+    var driverFourLon = response.data[3].lon;
+    var driverFiveLat = response.data[4].lat;
+    var driverFiveLon = response.data[4].lon;
+    // var driverLon = response.data[0].loc.lon;
+    initMap(
+      driverOneLat, driverOneLon,
+      driverTwoLat, driverTwoLon,
+      driverThreeLat, driverThreeLon,
+      driverFourLat, driverFourLon,
+      driverFiveLat, driverFiveLon
+    );
 
   //   window.onload = function() {
   //

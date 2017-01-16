@@ -11,7 +11,8 @@ driverList.push({
               vehicles: ['car', 'truck'],
               availability: 'yes',
               rate: '$20/hr',
-              loc: '37.774, -122.419'
+              lat: 37.774,
+              lon: -122.414
             });
 driverList.push({
               name: 'Jay',
@@ -22,7 +23,8 @@ driverList.push({
               vehicles: ['car', 'truck'],
               availability: 'yes',
               rate: '$23/hr',
-              loc: 'none'
+              lat: 37.774,
+              lon: -122.413
             });
 driverList.push({
               name: 'John',
@@ -33,7 +35,8 @@ driverList.push({
               vehicles: ['car', 'truck'],
               availability: 'yes',
               rate: '$25/hr',
-              loc: 'none'
+              lat: 37.774,
+              lon: -122.412
             });
 driverList.push({
               name: 'Marissa',
@@ -44,7 +47,8 @@ driverList.push({
               vehicles: ['car', 'truck with trailor'],
               availability: 'yes',
               rate: '$30/hr',
-              loc: 'none'
+              lat: 37.774,
+              lon: -122.410
             });
 driverList.push({
               name: 'Shaan',
@@ -55,7 +59,8 @@ driverList.push({
               vehicles: ['car', 'large truck'],
               availability: 'yes',
               rate: '$28/hr',
-              loc: 'none'
+              lat: 37.774,
+              lon: -122.417
             });
 
             console.log(driverList);
