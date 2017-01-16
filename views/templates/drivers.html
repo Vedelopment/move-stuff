@@ -2,70 +2,6 @@
 
     <div id="driversMap"></div>
 
-    <!-- ADD NEW DRIVER FORM -->
-    <div class="row">
-      <div class="col-sm-10 col-sm-offset-1">
-
-        <fieldset>
-          <form class="form-horizontal" ng-submit="driversIndexCtrl.createDriver()">
-
-            <!-- FORM TITLE -->
-            <legend>Become a Driver</legend>
-
-            <!-- INPUT DRIVER NAME -->
-            <div class="form-group">
-              <label class="col-xl-4 control-label">Driver Name</label>
-              <div class="col-xl-4">
-              <input id="name" ng-model="driversIndexCtrl.newDriver.name" type="text" class="form-control input-md" placeholder="Driver Name">
-              </div>
-            </div>
-
-            <!-- INPUT DRIVER IMG -->
-            <div class="form-group">
-              <label class="col-xl-4 control-label">Driver Image (enter an online url link)</label>
-              <div class="col-xl-4">
-              <input ng-model="driversIndexCtrl.newDriver.img" type="text" class="form-control input-md" value='n' placeholder="Driver Image (enter a url link)">
-              </div>
-            </div>
-
-            <!-- INPUT LOCATION -->
-            <div class="form-group">
-              <label class="col-xl-4 control-label">Vehicle Location</label>
-              <div class="col-xl-4">
-              <input ng-model="driversIndexCtrl.newDriver.location" type="text" class="form-control input-md" placeholder="Location">
-              </div>
-            </div>
-
-            <!-- INPUT RATE -->
-            <div class="form-group">
-              <label class="col-xl-4 control-label">Vehicle Rate</label>
-              <div class="col-xl-4">
-              <input ng-model="driversIndexCtrl.newDriver.rate" type="text" class="form-control input-md" placeholder="Rate (dollars/hr)">
-              </div>
-            </div>
-
-            <!-- INPUT VEHICLES -->
-            <div class="form-group">
-              <label class="col-xl-4 control-label">Vehicles (separated by commas)</label>
-              <div class="col-xl-4">
-                <textarea ng-model="driversIndexCtrl.newDriver.vehicles" class="form-control" placeholder="Vehicles (separated by commas)"></textarea>
-              </div>
-            </div>
-
-
-            <!-- SUBMIT NEW DRIVER -->
-            <div class="form-group">
-              <label class="col-xl-4 control-label">Save Driver</label>
-              <div class="col-xl-4">
-                <button class="btn btn-primary">Submit</button>
-              </div>
-            </div>
-          </form>
-        </fieldset>
-      </div>
-    </div>
-    <!-- END OF NEW DRIVER FORM -->
-
     <!-- CONTAINER FOR ALL DRIVERS -->
     <div>
 
@@ -76,7 +12,7 @@
 
         <jk-rating-stars rating="driver.rating" read-only="driver.readOnly">
         </jk-rating-stars>
-        <img src={{driver.img}}>
+        <img class="driver-photo" src={{driver.img}}>
 
         <ul>
           <li>{{driver.location}}</li>

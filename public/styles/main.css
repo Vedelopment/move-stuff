@@ -125,6 +125,22 @@ li {
     color: rgba(0,0,0,0);
 }
 
+.driver-photo {
+    border-radius: 100%;
+    width: 50%;
+}
+
+#userAlert {
+    position: fixed;
+    width: 100%;
+    background-color: #F75850;
+}
+
+/*CLASS FUNCTIONS AND ANIMATIONS*/
+.hide {
+    height: 0;
+}
+
 /*MOBILE*/
 @media (max-width: 500px) {
 

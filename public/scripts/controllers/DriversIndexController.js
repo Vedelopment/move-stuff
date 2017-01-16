@@ -11,12 +11,10 @@ function DriversIndexController ($http) {
   var vm = this;
   vm.drivers = {};
 
-
   $http({
     method: 'GET',
     url: '/api/drivers'
   }).then(function successCallback(response) {
-
 
     vm.drivers = response.data;
     var driverOneLat = response.data[0].lat;
@@ -38,22 +36,11 @@ function DriversIndexController ($http) {
       driverFiveLat, driverFiveLon
     );
 
-  //   window.onload = function() {
-  //
-  //
-  // };
-
-
   }, function errorCallback(response) {
     console.log('There was an error getting the data', response);
   });
 
   vm.createDriver = function () {
-    console.log(vm.newDriver.name);
-    // console.log(vm.newDriver.name);
-    // if (vm.newDriver.img === 'n') {
-    //   vm.newDriver.img = 'defaultAvatar.png';
-    // }
     $http({
       method: 'POST',
       url: '/api/drivers',
