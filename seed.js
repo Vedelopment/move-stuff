@@ -66,7 +66,7 @@ driverList.push({
               name: 'Jana',
               img: '/images/Jana.png',
               rating: '3.5',
-              readOnly: '5',
+              readOnly: '3.5',
               location: 'San Francisco',
               vehicles: ['car', 'large truck'],
               availability: 'yes',

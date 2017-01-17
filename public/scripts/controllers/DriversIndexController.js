@@ -6,10 +6,12 @@ angular
   .controller('DriversIndexController', DriversIndexController);
 
 DriversIndexController.$inject = ['$http'];
+// DriversIndexController.$inject = ['$scope']; //FUTURE JACOB CODE SUGGESTION, ADD INTO FUNCTION ARGUMENTS
 
 function DriversIndexController ($http) {
   var vm = this;
   vm.drivers = {};
+  // $scope.drivers = []; //FUTURE JACOB CODE SUGGESTION
 
   $http({
     method: 'GET',
@@ -17,8 +19,10 @@ function DriversIndexController ($http) {
   }).then(function successCallback(response) {
 
     console.log(response.data[0]._id);
+    // $scope.drivers.push(response.data); //FUTURE JACOB CODE SUGGESTION
 
     vm.drivers = response.data;
+
     var driverOneLat = response.data[0].lat;
     var driverOneLon = response.data[0].lon;
     var driverOneId = response.data[0]._id;
