@@ -1,0 +1,4 @@
+Clean up map marker function to a for loop
+  - for each response.data, make a marker with that id
+
+Associate/$scope marker construction with or in driver controller

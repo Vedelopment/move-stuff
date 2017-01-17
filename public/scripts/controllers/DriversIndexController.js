@@ -6,21 +6,27 @@ angular
   .controller('DriversIndexController', DriversIndexController);
 
 DriversIndexController.$inject = ['$http'];
+// DriversIndexController.$inject = ['$scope']; //FUTURE JACOB CODE SUGGESTION, ADD INTO FUNCTION ARGUMENTS
 
 function DriversIndexController ($http) {
   var vm = this;
   vm.drivers = {};
-
+  // $scope.drivers = []; //FUTURE JACOB CODE SUGGESTION
 
   $http({
     method: 'GET',
     url: '/api/drivers'
   }).then(function successCallback(response) {
 
+    console.log(response.data[0]._id);
+    // $scope.drivers.push(response.data); //FUTURE JACOB CODE SUGGESTION
 
     vm.drivers = response.data;
+
     var driverOneLat = response.data[0].lat;
     var driverOneLon = response.data[0].lon;
+    var driverOneId = response.data[0]._id;
+
     var driverTwoLat = response.data[1].lat;
     var driverTwoLon = response.data[1].lon;
     var driverThreeLat = response.data[2].lat;
@@ -31,29 +37,18 @@ function DriversIndexController ($http) {
     var driverFiveLon = response.data[4].lon;
     // var driverLon = response.data[0].loc.lon;
     initMap(
-      driverOneLat, driverOneLon,
+      driverOneLat, driverOneLon, driverOneId,
       driverTwoLat, driverTwoLon,
       driverThreeLat, driverThreeLon,
       driverFourLat, driverFourLon,
       driverFiveLat, driverFiveLon
     );
 
-  //   window.onload = function() {
-  //
-  //
-  // };
-
-
   }, function errorCallback(response) {
     console.log('There was an error getting the data', response);
   });
 
   vm.createDriver = function () {
-    console.log(vm.newDriver.name);
-    // console.log(vm.newDriver.name);
-    // if (vm.newDriver.img === 'n') {
-    //   vm.newDriver.img = 'defaultAvatar.png';
-    // }
     $http({
       method: 'POST',
       url: '/api/drivers',

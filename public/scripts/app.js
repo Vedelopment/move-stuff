@@ -19,6 +19,11 @@ angular
       controllerAs: 'driversIndexCtrl',
       controller: 'DriversIndexController'
     })
+    .when('/drivers-new', {
+      templateUrl: '/templates/drivers-new',
+      controllerAs: 'driversIndexCtrl',
+      controller: 'DriversIndexController'
+    })
     .when('/drivers/:id', {
       templateUrl: '/templates/drivers-show',
       controllerAs: 'driversShowCtrl',
